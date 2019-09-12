@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="Hagot_01:jar">
-    <output-path>$USER_HOME$/Desktop/Modding/Minecraft/Hakej's Spigot Server 1.14.4/plugins</output-path>
-    <root id="archive" name="Hagot_01.jar">
-      <element id="module-output" name="Hagot_01" />
-      <element id="extracted-dir" path="$USER_HOME$/Desktop/Modding/Minecraft/Hakej's Spigot Server 1.14.4/spigot-1.14.4.jar" path-in-jar="/" />
-    </root>
-  </artifact>
-</component>
