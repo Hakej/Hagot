@@ -1,5 +1,5 @@
 name: Hagot
-version: ${project.version}
+version: 1.0-SNAPSHOT
 main: me.hakej.hagot.hagot.Hagot
 authors: [Hakej]
 description: Hakej's first Spigot plugin
