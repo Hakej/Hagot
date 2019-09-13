@@ -8,8 +8,8 @@ website: https://github.com/Hakej
 
 commands:
   test:
-    description: test
-    usage: /test
+    description: Test command
+    usage: /<command>
   healme:
     description: Healing command
     usage: /<command>
