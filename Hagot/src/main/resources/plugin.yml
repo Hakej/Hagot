@@ -1,8 +1,10 @@
 name: Hagot
 version: ${project.version}
 main: me.hakej.hagot.hagot.Hagot
+api-version: 1.13
 authors: [Hakej]
-description: Hakej's first Spigot plugin
+description: Hakej's first Minecraft Spigot mod
+website: https://github.com/Hakej
 
 commands:
   test:

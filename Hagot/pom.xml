@@ -11,11 +11,12 @@
 
     <name>Hagot</name>
 
-    <description>Hakej's first Spigot plugin</description>
+    <description>Hakej's first Minecraft Spigot mod</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <url>https://github.com/Hakej</url>
 
     <build>
         <defaultGoal>clean package</defaultGoal>
@@ -56,8 +57,8 @@
 
     <repositories>
         <repository>
-            <id>spigotmc-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
+            <id>papermc-repo</id>
+            <url>https://papermc.io/repo/repository/maven-public/</url>
         </repository>
         <repository>
             <id>sonatype</id>
