@@ -9,6 +9,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Hagot extends JavaPlugin {
 
+    public int time = 2;
+
     @Override
     public void onEnable() {
         getServer().getConsoleSender().sendMessage(ChatColor.AQUA + this.getName() + " enabled.");
