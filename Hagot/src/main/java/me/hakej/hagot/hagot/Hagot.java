@@ -6,11 +6,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class Hagot extends JavaPlugin {
 
     private ConsolePrinter consolePrinter = new ConsolePrinter(getServer().getConsoleSender(), this);
+    private MyEvents myEvents = new MyEvents();
 
     @Override
     public void onEnable() {
         consolePrinter.sendStartConsoleMessage();
         initializeCommands();
+        this.getServer().getPluginManager().registerEvents(myEvents, this);
     }
 
     private void initializeCommands() {
