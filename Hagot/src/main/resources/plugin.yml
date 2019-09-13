@@ -10,3 +10,6 @@ commands:
   test:
     description: test
     usage: /test
+  healme:
+    description: Healing command
+    usage: /<command>
