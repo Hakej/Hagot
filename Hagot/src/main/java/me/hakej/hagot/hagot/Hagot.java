@@ -5,14 +5,16 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Hagot extends JavaPlugin {
 
-    private ConsolePrinter consolePrinter = new ConsolePrinter(getServer().getConsoleSender(), this);
-    private MyEvents myEvents = new MyEvents();
+    private ConsolePrinter consolePrinter = new ConsolePrinter(this);
+    private MyEvents myEvents = new MyEvents(this);
 
     @Override
     public void onEnable() {
         consolePrinter.sendStartConsoleMessage();
         initializeCommands();
-        this.getServer().getPluginManager().registerEvents(myEvents, this);
+        getConfig().options().copyDefaults(true);
+        saveConfig();
+        getServer().getPluginManager().registerEvents(myEvents, this);
     }
 
     private void initializeCommands() {
@@ -22,6 +24,6 @@ public final class Hagot extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        getServer().getConsoleSender().sendMessage(ChatColor.AQUA + this.getName() + " disabled.");
+        getServer().getConsoleSender().sendMessage(ChatColor.AQUA + getName() + " disabled.");
     }
 }
