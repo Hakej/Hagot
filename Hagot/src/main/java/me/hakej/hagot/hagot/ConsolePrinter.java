@@ -1,5 +1,6 @@
 package me.hakej.hagot.hagot;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -8,26 +9,26 @@ public class ConsolePrinter {
     private static final int START_CONSOLE_MESSAGE_WIDTH = 61;
     private static final char START_CONSOLE_MESSAGE_SYMBOL = '=';
 
-    private ConsoleCommandSender consoleCommandSender;
-    private JavaPlugin javaPlugin;
+    private ConsoleCommandSender console;
+    private JavaPlugin plugin;
 
-    public ConsolePrinter(ConsoleCommandSender consoleCommandSender, JavaPlugin javaPlugin) {
-        this.consoleCommandSender = consoleCommandSender;
-        this.javaPlugin = javaPlugin;
+    public ConsolePrinter(ConsoleCommandSender console, JavaPlugin plugin) {
+        this.console = console;
+        this.plugin = plugin;
     }
 
-    public void sendStartConsoleMessage() {
-        String pluginName = javaPlugin.getName();
-        String pluginVersion = javaPlugin.getDescription().getVersion();
-        String pluginDescription = javaPlugin.getDescription().getDescription();
+    public void enableMessage() {
+        String name = plugin.getName();
+        String version = plugin.getDescription().getVersion();
+        String description = plugin.getDescription().getDescription();
 
-        consoleCommandSender.sendMessage(messageLine());
-        consoleCommandSender.sendMessage(messageContent(" "));
-        consoleCommandSender.sendMessage(messageContent(pluginName));
-        consoleCommandSender.sendMessage(messageContent(pluginVersion));
-        consoleCommandSender.sendMessage(messageContent(pluginDescription));
-        consoleCommandSender.sendMessage(messageContent(" "));
-        consoleCommandSender.sendMessage(messageLine());
+        console.sendMessage(messageLine());
+        console.sendMessage(messageContent(" "));
+        console.sendMessage(messageContent(name));
+        console.sendMessage(messageContent(version));
+        console.sendMessage(messageContent(description));
+        console.sendMessage(messageContent(" "));
+        console.sendMessage(messageLine());
     }
 
     private String messageLine() {
@@ -52,5 +53,10 @@ public class ConsolePrinter {
         }
         stringBuilder.append(START_CONSOLE_MESSAGE_SYMBOL);
         return stringBuilder.toString();
+    }
+
+    public void disableMessage() {
+        console.sendMessage(ChatColor.AQUA + plugin.getName() +
+                ChatColor.RESET + " disabled.");
     }
 }

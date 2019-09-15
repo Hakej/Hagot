@@ -1,6 +1,5 @@
 package me.hakej.hagot.hagot;
 
-import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Hagot extends JavaPlugin {
@@ -10,7 +9,7 @@ public final class Hagot extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        consolePrinter.sendStartConsoleMessage();
+        consolePrinter.enableMessage();
         initializeCommands();
         getConfig().options().copyDefaults(true);
         saveConfig();
@@ -24,6 +23,6 @@ public final class Hagot extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        getServer().getConsoleSender().sendMessage(ChatColor.AQUA + getName() + " disabled.");
+        consolePrinter.disableMessage();
     }
 }
