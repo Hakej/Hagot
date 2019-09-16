@@ -1,24 +1,35 @@
 package me.hakej.hagot.hagot;
 
+import me.hakej.hagot.hagot.commands.HealMe;
+import me.hakej.hagot.hagot.commands.Test;
+import me.hakej.hagot.hagot.console.ConsolePrinter;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Hagot extends JavaPlugin {
 
-    private ConsolePrinter consolePrinter = new ConsolePrinter(getServer().getConsoleSender(), this);
-    private MyEvents myEvents = new MyEvents(this);
+    private ConsolePrinter consolePrinter = new ConsolePrinter(this);
+    private ModEventHandler modEventHandler = new ModEventHandler(this);
 
     @Override
     public void onEnable() {
         consolePrinter.enableMessage();
+        initializePlugin();
+    }
+
+    private void initializePlugin() {
         initializeCommands();
-        getConfig().options().copyDefaults(true);
-        saveConfig();
-        getServer().getPluginManager().registerEvents(myEvents, this);
+        initializeConfig();
+        getServer().getPluginManager().registerEvents(modEventHandler, this);
     }
 
     private void initializeCommands() {
-        getCommand("test").setExecutor(new TestCommand());
-        getCommand("healme").setExecutor(new HealMeCommand());
+        getCommand("test").setExecutor(new Test());
+        getCommand("healme").setExecutor(new HealMe());
+    }
+
+    private void initializeConfig() {
+        getConfig().options().copyDefaults(true);
+        saveConfig();
     }
 
     @Override

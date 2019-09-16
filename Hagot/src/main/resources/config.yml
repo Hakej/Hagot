@@ -1,5 +1,4 @@
-enabled: true
+censor-bad-words: true
 banned-words:
-  - cat
-  - dog
-  - hakej
+  - Terraria is a bad game
+  - stonks
