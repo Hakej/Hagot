@@ -1,6 +1,6 @@
-package me.hakej.hagot.hagot;
+package me.hakej.hagot.hagot.commands;
 
-import org.bukkit.ChatColor;
+import me.hakej.hagot.hagot.ChatColoring;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -27,7 +27,7 @@ public class HealMe implements CommandExecutor {
                     } else {
                         double newHealth = playerHealth + addHealth;
                         player.setHealth(Math.min(newHealth, MAX_PLAYER_HEALTH));
-                        player.sendMessage(ChatColor.GRAY + "You have been healed for " + ChatColoring.POSITIVE
+                        player.sendMessage(ChatColoring.INFO + "You have been healed for " + ChatColoring.POSITIVE
                                 + Math.floor((player.getHealth() - playerHealth) * 1e2) / 1e2 + " health.");
                     }
                 } catch (NumberFormatException e) {

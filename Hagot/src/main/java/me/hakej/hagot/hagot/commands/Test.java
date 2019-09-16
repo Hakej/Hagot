@@ -1,5 +1,6 @@
-package me.hakej.hagot.hagot;
+package me.hakej.hagot.hagot.commands;
 
+import me.hakej.hagot.hagot.ChatColoring;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

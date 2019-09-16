@@ -1,4 +1,4 @@
-package me.hakej.hagot.hagot;
+package me.hakej.hagot.hagot.console;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
