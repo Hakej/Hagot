@@ -2,16 +2,14 @@ package me.hakej.hagot.hagot.commands;
 
 import me.hakej.hagot.hagot.ChatColoring;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class HealMe implements CommandExecutor {
+public class HealMe implements HagotCommand {
 
     private final static double MAX_PLAYER_HEALTH = 20;
 
-    @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean execute(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
             sender.sendMessage(ChatColoring.NEGATIVE + "Only players can execute this command!");
         } else {

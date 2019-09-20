@@ -7,12 +7,9 @@ description: Hakej's first Minecraft Spigot mod
 website: https://github.com/Hakej
 
 commands:
-  test:
-    description: Test command
+  hg:
+    description: Hagot shorter command prefix
     usage: /<command>
-  healme:
-    description: Healing command
-    usage: /<command>
-  toggle:
-    description: Command for toggling event handlers, like breaking block or placing one
+  hagot:
+    description: Hagot longer command prefix
     usage: /<command>

@@ -2,14 +2,12 @@ package me.hakej.hagot.hagot.commands;
 
 import me.hakej.hagot.hagot.ChatColoring;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Test implements CommandExecutor {
+public class Test implements HagotCommand {
 
-    @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean execute(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player) sender;
         if (player != null) {
             player.sendMessage(ChatColoring.TEST + "Test command works!!");
