@@ -13,3 +13,6 @@ commands:
   healme:
     description: Healing command
     usage: /<command>
+  toggle:
+    description: Command for toggling event handlers, like breaking block or placing one
+    usage: /<command>

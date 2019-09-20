@@ -1,4 +1,7 @@
-censor-bad-words: true
 banned-words:
   - Terraria is a bad game
   - stonks
+toggle:
+  break: true
+  place: true
+  censor-words: true

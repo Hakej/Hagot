@@ -13,22 +13,17 @@ public class AsyncPlayerChatEventHandler implements SpigotEventHandler {
     public static void handle(JavaPlugin plugin, AsyncPlayerChatEvent event) {
         String message = event.getMessage();
         Player player = event.getPlayer();
-        String playerId = player.getUniqueId().toString();
 
         FileConfiguration config = plugin.getConfig();
-        boolean censorBadWords = config.getBoolean("censor-bad-words");
-        int incidents = config.getInt("incidents." + playerId);
-        List<String> wordList = config.getStringList("banned-words");
+        boolean enabled = config.getBoolean("toggle.censor-words");
+        List<String> bannedWords = config.getStringList("banned-words");
 
-        if (censorBadWords) {
-            for (String bannedWord : wordList) {
+        if (enabled) {
+            for (String bannedWord : bannedWords) {
                 if (message.contains(bannedWord)) {
                     // Hide message
                     event.setCancelled(true);
                     player.sendMessage(ChatColoring.NEGATIVE + "You cannot say that!");
-                    // Update and save amount of player's incidents
-                    config.set("incidents." + playerId, ++incidents);
-                    plugin.saveConfig();
                 }
             }
         }
