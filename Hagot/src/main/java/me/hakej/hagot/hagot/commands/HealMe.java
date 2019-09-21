@@ -18,8 +18,8 @@ public class HealMe implements CommandExecutor {
         } else {
             Player player = (Player) sender;
             if (args.length != 1) {
-                player.sendMessage(ChatColoring.NEGATIVE + "Wrong usage of the command. Correct usage: " +
-                        ChatColoring.MOD + "/hg " +
+                player.sendMessage(ChatColoring.NEGATIVE + "Wrong usage of the command. Correct usage: ");
+                player.sendMessage(ChatColoring.MOD + "/hg " +
                         ChatColoring.MARKED + label +
                         ChatColoring.INFO + " <heal-points>");
             } else {

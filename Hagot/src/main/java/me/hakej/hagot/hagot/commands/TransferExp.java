@@ -16,8 +16,8 @@ public class TransferExp implements CommandExecutor {
             sender.sendMessage(ChatColoring.NEGATIVE + "Only players can execute this command!");
         } else {
             if (args.length != 2) {
-                sender.sendMessage(ChatColoring.NEGATIVE + "Wrong usage of the command. Correct usage: " +
-                        ChatColoring.MOD + "/hg " +
+                sender.sendMessage(ChatColoring.NEGATIVE + "Wrong usage of the command. Correct usage: ");
+                sender.sendMessage(ChatColoring.MOD + "/hg " +
                         ChatColoring.MARKED + "transferexp " +
                         ChatColoring.TARGET + "<target> " +
                         ChatColoring.INFO + "<exp-points>");
