@@ -1,6 +1,6 @@
 package me.hakej.hagot.hagot.events;
 
-import me.hakej.hagot.hagot.ChatColoring;
+import me.hakej.hagot.hagot.utils.ChatColoring;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class BlockBreakEventHandler implements SpigotEventHandler {
+public class BlockBreakEventHandler implements HagotEventHandler {
 
     public static void handle(JavaPlugin plugin, BlockBreakEvent event) {
         Block block = event.getBlock();
@@ -19,8 +19,9 @@ public class BlockBreakEventHandler implements SpigotEventHandler {
         boolean enabled = config.getBoolean("event-toggle.break");
 
         if (enabled) {
-            String materialMessage = ChatColoring.INFO + material.name() + ChatColoring.RESET;
-            player.sendMessage("You have broke: " + materialMessage + ".");
+            player.sendMessage("You have broke: " +
+                    ChatColoring.INFO + material.name() +
+                    ChatColoring.RESET + ".");
         }
     }
 }

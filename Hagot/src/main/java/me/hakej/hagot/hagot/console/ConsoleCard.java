@@ -1,6 +1,6 @@
 package me.hakej.hagot.hagot.console;
 
-import me.hakej.hagot.hagot.ChatColoring;
+import me.hakej.hagot.hagot.utils.ChatColoring;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 

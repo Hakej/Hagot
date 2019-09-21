@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class Hagot extends JavaPlugin {
 
     private ConsolePrinter consolePrinter = new ConsolePrinter(this);
-    private ModEventHandler modEventHandler = new ModEventHandler(this);
+    private HagotListener hagotListener = new HagotListener(this);
     private HagotCommandExecutor hagotCommandExecutor = new HagotCommandExecutor(this);
 
     @Override
@@ -18,7 +18,7 @@ public final class Hagot extends JavaPlugin {
     private void initializePlugin() {
         initializeCommands();
         initializeConfig();
-        getServer().getPluginManager().registerEvents(modEventHandler, this);
+        getServer().getPluginManager().registerEvents(hagotListener, this);
     }
 
     private void initializeCommands() {

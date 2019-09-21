@@ -1,6 +1,6 @@
 package me.hakej.hagot.hagot.events;
 
-import me.hakej.hagot.hagot.ChatColoring;
+import me.hakej.hagot.hagot.utils.ChatColoring;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class BlockPlaceEventHandler implements SpigotEventHandler {
+public class BlockPlaceEventHandler implements HagotEventHandler {
 
     private static final List<Material> BANNED_MATERIALS = Collections.unmodifiableList(
             new ArrayList<Material>() {{
@@ -32,10 +32,13 @@ public class BlockPlaceEventHandler implements SpigotEventHandler {
         if (enabled) {
             for (Material bannedMaterial : BANNED_MATERIALS) {
                 if (material.equals(bannedMaterial)) {
-                    ChatColor messageColor = ChatColoring.NEGATIVE;
-                    String materialInfo = ChatColoring.INFO + bannedMaterial.toString() + messageColor;
+                    // Clear placed block
                     block.setType(Material.AIR);
-                    player.sendMessage(messageColor + "You cannot place " + materialInfo + "!");
+                    
+                    ChatColor messageColor = ChatColoring.NEGATIVE;
+                    player.sendMessage(messageColor + "You cannot place " +
+                            ChatColoring.INFO + bannedMaterial.toString() +
+                            messageColor + "!");
                     break;
                 }
             }

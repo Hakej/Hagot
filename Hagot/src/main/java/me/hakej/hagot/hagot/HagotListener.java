@@ -12,11 +12,11 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class ModEventHandler implements Listener {
+public class HagotListener implements Listener {
 
     private JavaPlugin plugin;
 
-    public ModEventHandler(JavaPlugin plugin) {
+    public HagotListener(JavaPlugin plugin) {
         this.plugin = plugin;
     }
 

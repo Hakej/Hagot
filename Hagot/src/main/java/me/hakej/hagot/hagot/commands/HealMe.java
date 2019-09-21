@@ -1,15 +1,18 @@
 package me.hakej.hagot.hagot.commands;
 
-import me.hakej.hagot.hagot.ChatColoring;
+import me.hakej.hagot.hagot.utils.ChatColoring;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class HealMe implements HagotCommand {
+public class HealMe implements CommandExecutor {
 
-    private final static double MAX_PLAYER_HEALTH = 20;
+    private final static double MAX_PLAYER_HEALTH = 20.0;
 
-    public boolean execute(CommandSender sender, Command command, String label, String[] args) {
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
             sender.sendMessage(ChatColoring.NEGATIVE + "Only players can execute this command!");
         } else {
@@ -23,10 +26,14 @@ public class HealMe implements HagotCommand {
                     if (playerHealth >= MAX_PLAYER_HEALTH) {
                         player.sendMessage(ChatColoring.WARN + "You have max health.");
                     } else {
+                        ChatColor messageColor = ChatColoring.POSITIVE;
                         double newHealth = playerHealth + addHealth;
                         player.setHealth(Math.min(newHealth, MAX_PLAYER_HEALTH));
-                        player.sendMessage(ChatColoring.INFO + "You have been healed for " + ChatColoring.POSITIVE
-                                + Math.floor((player.getHealth() - playerHealth) * 1e2) / 1e2 + " health.");
+                        double healedHealth = Math.floor((player.getHealth() - playerHealth) * 1e2) / 1e2;
+
+                        player.sendMessage(messageColor + "You have been healed for " +
+                                ChatColoring.INFO + healedHealth +
+                                messageColor + " health.");
                     }
                 } catch (NumberFormatException e) {
                     player.sendMessage(ChatColoring.NEGATIVE + "Please input a real number!");
