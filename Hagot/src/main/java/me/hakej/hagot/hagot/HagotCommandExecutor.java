@@ -2,6 +2,7 @@ package me.hakej.hagot.hagot;
 
 import me.hakej.hagot.hagot.commands.*;
 import me.hakej.hagot.hagot.utils.ChatColoring;
+import me.hakej.hagot.hagot.utils.CommandsNames;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -23,11 +24,11 @@ public class HagotCommandExecutor implements CommandExecutor {
     }
 
     private void initializeCommandsMap() {
-        commands.put("currentexp", new CurrentExp());
-        commands.put("healme", new HealMe());
-        commands.put("test", new Test());
-        commands.put("toggle", new Toggle(plugin));
-        commands.put("transferexp", new TransferExp());
+        commands.put(CommandsNames.CurrentExp, new CurrentExp());
+        commands.put(CommandsNames.HealMe, new HealMe());
+        commands.put(CommandsNames.Test, new Test());
+        commands.put(CommandsNames.Toggle, new Toggle(plugin));
+        commands.put(CommandsNames.TransferExp, new TransferExp());
     }
 
     @Override
@@ -44,7 +45,7 @@ public class HagotCommandExecutor implements CommandExecutor {
             } else {
                 // Copy args array without first element
                 String[] commandArgs = Arrays.copyOfRange(args, 1, args.length);
-                commands.get(commandName).onCommand(sender, command, label, commandArgs);
+                commands.get(commandName).onCommand(sender, command, commandName, commandArgs);
             }
         }
         return true;

@@ -16,7 +16,7 @@ public class BlockBreakEventHandler implements HagotEventHandler {
         Player player = event.getPlayer();
 
         FileConfiguration config = plugin.getConfig();
-        boolean enabled = config.getBoolean("event-toggle.break");
+        boolean enabled = config.getBoolean("toggle.break");
 
         if (enabled) {
             player.sendMessage("You have broke: " +

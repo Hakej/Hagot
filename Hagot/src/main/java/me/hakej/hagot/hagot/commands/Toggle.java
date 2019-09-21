@@ -19,10 +19,13 @@ public class Toggle implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         FileConfiguration config = plugin.getConfig();
         if (args.length < 1) {
-            sender.sendMessage(ChatColoring.NEGATIVE + "Please include which event to toggle!");
+            sender.sendMessage(ChatColoring.NEGATIVE + "Wrong usage of the command. Correct usage: " +
+                    ChatColoring.MOD + "/hg " +
+                    ChatColoring.MARKED + label +
+                    ChatColoring.INFO + " <event>");
         } else {
             String eventToToggle = args[0];
-            String path = "event-toggle." + eventToToggle;
+            String path = "toggle." + eventToToggle;
             boolean state = config.getBoolean(path);
             if (eventToToggle == null) {
                 sender.sendMessage("ERROR");

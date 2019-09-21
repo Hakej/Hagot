@@ -27,14 +27,14 @@ public class BlockPlaceEventHandler implements HagotEventHandler {
         Player player = event.getPlayer();
 
         FileConfiguration config = plugin.getConfig();
-        boolean enabled = config.getBoolean("event-toggle.place");
+        boolean enabled = config.getBoolean("toggle.place");
 
         if (enabled) {
             for (Material bannedMaterial : BANNED_MATERIALS) {
                 if (material.equals(bannedMaterial)) {
                     // Clear placed block
                     block.setType(Material.AIR);
-                    
+
                     ChatColor messageColor = ChatColoring.NEGATIVE;
                     player.sendMessage(messageColor + "You cannot place " +
                             ChatColoring.INFO + bannedMaterial.toString() +

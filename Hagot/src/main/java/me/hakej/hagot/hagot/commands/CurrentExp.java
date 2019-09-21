@@ -13,7 +13,7 @@ public class CurrentExp implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage(ChatColoring.NEGATIVE + "Only players can execute this");
+            sender.sendMessage(ChatColoring.NEGATIVE + "Only players can execute this command!");
         } else {
             int experience = ExperienceModifier.getPlayerExp(((Player) sender));
             ChatColor messageColor = ChatColoring.POSITIVE;

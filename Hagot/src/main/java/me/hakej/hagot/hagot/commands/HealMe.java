@@ -17,9 +17,12 @@ public class HealMe implements CommandExecutor {
             sender.sendMessage(ChatColoring.NEGATIVE + "Only players can execute this command!");
         } else {
             Player player = (Player) sender;
-            if (args.length < 1) {
-                player.sendMessage(ChatColoring.NEGATIVE + "Please include how much you want to be healed by!");
-            } else if (args.length == 1) {
+            if (args.length != 1) {
+                player.sendMessage(ChatColoring.NEGATIVE + "Wrong usage of the command. Correct usage: " +
+                        ChatColoring.MOD + "/hg " +
+                        ChatColoring.MARKED + label +
+                        ChatColoring.INFO + " <heal-points>");
+            } else {
                 try {
                     double playerHealth = player.getHealth();
                     double addHealth = Double.parseDouble(args[0]);
