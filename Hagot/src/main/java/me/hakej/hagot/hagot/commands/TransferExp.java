@@ -42,7 +42,7 @@ public class TransferExp implements CommandExecutor {
                         ExperienceModifier.givePlayerExp(grantor, -expToTransfer);
                         ExperienceModifier.givePlayerExp(target, expToTransfer);
                         ChatColor messageColor = ChatColoring.POSITIVE;
-                        grantor.sendMessage(messageColor + "You have sent successfully transfered " +
+                        grantor.sendMessage(messageColor + "You have successfully transferred " +
                                 ChatColoring.INFO + expToTransfer +
                                 messageColor + " exp to " +
                                 ChatColoring.MARKED + target.getName() +
